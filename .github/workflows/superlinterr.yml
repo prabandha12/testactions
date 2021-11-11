@@ -15,3 +15,10 @@ jobs:
         env:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build push docker Image
+        uses: mr-smithers-excellent/docker-build-push@v5
+        with:
+          image:  prabandhailluri/ppp
+          registry: docker.io
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
